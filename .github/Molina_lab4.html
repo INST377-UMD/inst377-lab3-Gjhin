@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Molina Lab 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #df949d;
+        }
+
+        .section-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section-box {
+            flex: 1 1 calc(50% - 20px);
+            border: 2px solid #000;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: darkolivegreen;
+            border-radius: 12px; 
+            display: block;
+            text-align: center;
+        }
+
+
+        .section-box h2 { margin-top: 0; }
+
+        input[type="text"], button {
+            border-radius: 8px;
+            border: 1px solid #000;
+            padding: 6px 10px;
+        }
+
+      
+        #bg-btn {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="page-title">ISNT377 - Molina Lab 4</h1>
+
+    <div class="section-row">
+        <div class="section-box">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <button id="submit-name" name="submit-name">Alert me</button>
+            </form>
+            <script>
+                document.getElementById("submit-name").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    var name = document.getElementById("name").value;
+                    if (name === "") {
+                        alert("Please enter a name.");
+                        return;
+                    }
+                    alert("Hi, " + name + "!");
+                });
+            </script>
+        </div>
+        </form>
+
+
+        <div class="section-box">
+            <button id="bg-btn" onclick="changeBg()">Change Color</button>
+            <script>
+                const originalBg = getComputedStyle(document.body).backgroundColor;
+                const altBg = "#97976a";
+
+                function changeBg() {
+                  const current = getComputedStyle(document.body).backgroundColor;
+                  if (current === originalBg) {
+                    document.body.style.backgroundColor = altBg;
+                  } else {
+                    document.body.style.backgroundColor = originalBg;
+                  }
+                }
+            </script>
+        </div>
+
+        <div class="section-box">
+            <form id="form-text-tester">
+            <label for="text-tester">Text Tester:</label>
+            <input type="text" id="text-tester" name="text-tester">
+            <button id="test-btn" name="test-btn">Validate Text</button>
+            <script>
+                document.getElementById("test-btn").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    var text = document.getElementById("text-tester").value;
+                    if (validation.test(text)) {
+                        alert("Invalid! Invalid! Invalid!");
+                    } else {
+                        alert("Valid! Valid! Valid!");
+                    }
+                });
+            </script>
+            </form>
+        </div>
+        
+
+        <div class="section-box">
+           
+            <button id="addtxt" type="button" onclick="addText()">Add Text</button>
+            <script>
+                function addText() {
+                    const titleEl = document.getElementById('page-title');
+                    if (!titleEl) return;
+
+                    const phrase = '- Adding Text';
+      
+                    if (!titleEl.textContent.includes(phrase)) {
+                        titleEl.textContent = (titleEl.textContent.trim() + ' ' + phrase).trim();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
+

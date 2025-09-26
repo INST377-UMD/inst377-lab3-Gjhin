@@ -1,0 +1,33 @@
+Put all on terminal 
+run one at a time
+
+git add .
+git commit -m "Finished Assignment"
+git push
+
+Copy n paste url link to elms 
+
+<style>
+        .main_content {
+            background-color: bisque;
+            padding: 20px;
+            border: 2px solid lightgreen;
+            width: 70%;
+        }
+        .content_section {
+            margin-bottom: 20px;
+        }
+        .content_section h3 {
+            color: darkblue;
+        }
+        aside {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        aside h2 {
+            color: darkgreen;
+        }
+    </style>
+    </div>
